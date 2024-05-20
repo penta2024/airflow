@@ -1,9 +1,9 @@
 from airflow.models.dag import DAG
 import datetime
 import pendulum
-import random
 
 from airflow.operators.python import PythonOperator
+import random
 
 with DAG(
     dag_id="dags_python_operator",
