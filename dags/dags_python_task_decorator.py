@@ -6,7 +6,7 @@ with DAG(
     dag_id="dags_python_task_decorator",
     schedule="0 1 * * 1",
     start_date=pendulum.datetime(2023, 3, 1, tz="Asia/Seoul"),
-    catchup=False,
+    catchup=False
 ) as dag : 
     
     @task(task_id='python_task_1')
