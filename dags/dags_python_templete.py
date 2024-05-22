@@ -1,4 +1,5 @@
 from airflow.models.dag import DAG
+import datetime
 import pendulum
 from airflow.operators.python import PythonOperator
 from airflow.decorators import task
@@ -21,7 +22,7 @@ with DAG(
     )
     
     @task(task_id='python_t2')
-    def python_function2(**kwargs): 
+    def python_function2(**kwargs):  
         print(kwargs)
         print( 'ds:' + kwargs['ds'])
         print( 'ts:' + kwargs['ts'])
