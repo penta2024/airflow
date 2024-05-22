@@ -11,7 +11,7 @@ with DAG(
 ) as dag : 
     
     def python_function1(start_date, end_date, **kwargs) :
-        prinf(start_date)
+        print(start_date)
         print(end_date)
         
     python_t1 = PythonOperator (
