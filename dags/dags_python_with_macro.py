@@ -10,15 +10,15 @@ with DAG(
 ) as dag : 
 
     @task(task_id='task_using_macro' ,
-        teplete_dict = { 'start_date' : '{{  data_interval_start.in_timezone("Asia/Seoul") | ds}}' ,
-                         'end_date'   : '{{ (data_interval_end.in_timezone("Asia/Seoul") - macros.dateutil.relativedelta.relativedelta(days=1)) | ds}}'   
+        templates_dict = { 'start_date' : '{{ (data_interval_start.in_timezone("Asia/Seoul")              + macros.dateutil.relativedelta.relativedelta(months=-1, day =1) )  | ds}}' ,
+                           'end_date'   : '{{ (data_interval_end.in_timezone("Asia/Seoul").replace(day=1) + macros.dateutil.relativedelta.relativedelta(days=-1))             | ds}}'          
         }
     )
     def get_datetime_macro(**kwargs):  
-        teplete_dict = kwargs.get('teplete_dict') or {}
-        if teplete_dict :
-            start_date = teplete_dict.get('start_date') or 'start_date 없음'
-            end_date   = teplete_dict.get('end_date')   or 'end_date 없음'
+        templates_dict = kwargs.get('templates_dict') or {}
+        if templates_dict :
+            start_date = templates_dict.get('start_date') or 'start_date 없음'
+            end_date   = templates_dict.get('end_date')   or 'end_date 없음'
             print(start_date)
             print(end_date)
             
