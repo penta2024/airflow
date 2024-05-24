@@ -16,7 +16,7 @@ with DAG(
        
     @task(task_id='python_xcom_pull_1')
     def xcom_pull_1(**kwargs) :
-       ti = kwargs['ti']
+       ti = kwargs["ti"]
        value1 = ti.xcom_pull(task_ids ='python_xcom_push_by_return' )
        print( 'xcom_pull 매서드로 직접 찾은 리텀값 :' + value1) 
        
