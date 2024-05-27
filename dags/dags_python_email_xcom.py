@@ -14,7 +14,7 @@ with DAG(
 
    
   @task(task_id =  'something_task' )
-  def something_logic(**kwargs) :
+  def some_logic(**kwargs) :
       from random import choice
       return choice (['Success','Fail'])
       
@@ -26,4 +26,4 @@ with DAG(
                         {{ ti.xcom_pull(task_ids ="something_task") }} 했습니다 <br> '
      )       
 
-something_logic() >> send_email  
+some_logic() >> send_email  
