@@ -1,4 +1,4 @@
-from airflow.models.dag import DAG
+from airflow import DAG
 import datetime
 import pendulum
 from airflow.decorators import task
@@ -22,7 +22,7 @@ with DAG(
                 'DATA'   : "{{ ti.xcom_pull( task_ids = 'bash_push' )['data']}}" ,
                 'OPTION_CNT' : "{{ ti.xcom_pull( task_ids = 'bash_push' )['option_cnt']}}"
                } ,
-        bash_command="echo $STATUS && echo $DATA && echo &OPTION_CNT"
+        bash_command= 'echo $STATUS && echo $DATA && echo &OPTION_CNT '
     )       
 
 python_push_xcom() >> bash_pull 
