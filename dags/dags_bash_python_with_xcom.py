@@ -1,4 +1,4 @@
-from airflow import DAG
+from airflow.models.dag import DAG
 import datetime
 import pendulum
 from airflow.decorators import task
@@ -31,15 +31,15 @@ python_push_xcom() >> bash_pull
 bash_push = BashOperator (
   task_id = 'bash_push' ,
   bash_command = 'echo PUSH_START '
-                 '{{ ti.xcom_push ( key = "bash_pushed" , value = 200) }} && '
+                 '{{ ti.xcom_push(key = "bash_pushed" , value = 200) }} && '
                  'echo PUSH_COMPLETE' 
 )
        
 @task( task_id = 'python_pull')
-def python_pull_xcom(**kwargs) :
+def python_pull_xcom(**kwargs):
     ti = kwargs['ti']
-    status_value = ti.xcom_pull( key = "bash_pushed")
-    return_value = ti.xcom_pull( task_ids = "bash_push") 
+    status_value = ti.xcom_pull(key = 'bash_pushed')
+    return_value = ti.xcom_pull(task_ids = 'bash_push') 
     print('status_value : ' + str(status_value))
     print('return_value : ' + return_value)
     
