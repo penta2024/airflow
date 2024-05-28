@@ -4,7 +4,6 @@ import pendulum
 from airflow.decorators       import task
 from airflow.operators.bash   import BashOperator
 from airflow.operators.python import PythonOperator
-from airflow.exceptions       import AirflowException
 
 with DAG(
     dag_id="dags_python_with_trigger_rule_eg2",
@@ -43,5 +42,5 @@ with DAG(
     def task_d() : 
         print('정상처리')
    
-    random_branch() >> [task_a, task_b, task_c] >> task_d
+    random_branch() >> [task_a(), task_b(), task_c()] >> task_d()
    
