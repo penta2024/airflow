@@ -31,4 +31,4 @@ with DAG(
       failed_states  = None
     )
 
-    start_task >> Label['트리거'] >>trigger_dag_task
+    start_task >> Label('트리거') >> trigger_dag_task
