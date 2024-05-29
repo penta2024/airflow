@@ -27,8 +27,8 @@ with DAG(
       reset_dag_run = True ,
       wait_for_completion = False ,
       poke_interval = 60 ,
-      allowd_states = ['success'] ,
-      failed_states = None
+      allowed_states = ['success'] ,
+      failed_states  = None
     )
 
     start_task >> Label['트리거'] >>trigger_dag_task
