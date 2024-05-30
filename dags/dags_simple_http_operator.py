@@ -35,6 +35,7 @@ with DAG(
         
         # pprint(json.loads(rslt))
         print('aaa')
+        print(json.loads(rslt))
     
 
     tb_cycle_station_info  >> python_2()
