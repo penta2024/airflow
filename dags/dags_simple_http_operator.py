@@ -36,4 +36,4 @@ with DAG(
         pprint(json.loads(rslt))
     
 
-    tb_cycle_station_info  >> python_2
+    tb_cycle_station_info  >> python_2()
