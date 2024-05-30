@@ -33,7 +33,7 @@ with DAG(
         import json
         from pprint import pprint
         
-        # pprint(json.loads(rslt))  # loads error 발생
+        pprint(json.loads(rslt))  # loads error 발생
         print('aaa')
     
 
