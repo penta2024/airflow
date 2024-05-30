@@ -6,7 +6,6 @@ import pendulum
 from airflow.operators.bash           import BashOperator
 from airflow.providers.http.operators.http import SimpleHttpOperator
 from airflow.decorators               import task
-from airflow.utils.edgemodifier       import Label
 
 with DAG(
     dag_id="dags_simple_http_operator",
@@ -37,4 +36,4 @@ with DAG(
         pprint(json.loads(rslt))
     
 
-    tb_cycle_station_info >> Label('공공데이터') >> python_2
+    tb_cycle_station_info  >> python_2
