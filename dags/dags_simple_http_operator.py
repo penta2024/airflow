@@ -33,9 +33,8 @@ with DAG(
         import json
         from pprint import pprint
         
-        # pprint(json.loads(rslt))
+        # pprint(json.loads(rslt))  # loads error 발생
         print('aaa')
-        print(json.loads(rslt))
     
 
     tb_cycle_station_info  >> python_2()
