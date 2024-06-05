@@ -12,7 +12,7 @@ with DAG(
     catchup=False
 ) as dag:
     
-    '''  서울시 코로나19 확진자 발생 정보 '''
+    '''  서울시 코로나19 확진자 발생 정보  '''
     tb_corona19_count_status = SeoulApiToCsvOperator(
         task_id = 'tb_corona19_count_status'  ,
         dataset_nm = 'TbCorona19CountStatus'  ,
