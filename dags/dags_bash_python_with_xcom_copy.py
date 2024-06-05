@@ -9,7 +9,7 @@ with DAG(
     schedule="30 9 * * *",
     start_date=pendulum.datetime(2023, 3, 1, tz="Asia/Seoul"),
     catchup=False
-) as dag:
+) as dag: 
     
   @task(task_id =  'python_push' )
   def python_push_xcom() :
