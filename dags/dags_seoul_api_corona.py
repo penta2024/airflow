@@ -4,6 +4,7 @@ import datetime
 import pendulum
 
 from operators.seoul_api_to_csv_operator  import SeoulApiToCsvOperator
+from airflow.operators.bash import BashOperator
 
 with DAG(
     dag_id="dags_seoul_api_corona",
@@ -28,4 +29,9 @@ with DAG(
         path = '/opt/airflow/files/tvCorona19VaccinestatNew/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}' 
     )  
          
-    tb_corona19_count_status  >> tv_corona19_vaccine_stat_new
+    bash_t1 = BashOperator(
+        task_id="bash_t1",
+        bash_command="echo whoami",
+    )  
+      
+    bash_t1 >> tb_corona19_count_status  >> tv_corona19_vaccine_stat_new
