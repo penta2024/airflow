@@ -34,4 +34,4 @@ with DAG(
         bash_command="echo whoami",
     )  
       
-    bash_t1 >> tb_corona19_count_status  >> tv_corona19_vaccine_stat_new
+    bash_t1  >> tb_corona19_count_status  >> tv_corona19_vaccine_stat_new
