@@ -1,6 +1,6 @@
 from airflow.models.baseoperator           import BaseOperator
 from airflow.hooks.base                    import BaseHook
-import pandas as pd # type: ignore
+import pandas as pd 
 
 class SeoulApiToCsvOperator(BaseOperator):
     template_fields = ('endpoint' , 'path' ,'file_name' ,'base_dt')
