@@ -7,7 +7,7 @@ from operators.seoul_api_to_csv_operator  import SeoulApiToCsvOperator
 
 with DAG(
     dag_id="dags_seoul_api_corona",
-    schedule="30 9 * * *",
+    schedule="0 7 * * *",
     start_date=pendulum.datetime(2023, 3, 1, tz="Asia/Seoul"),
     catchup=False
 ) as dag:
