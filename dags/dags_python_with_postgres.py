@@ -30,7 +30,7 @@ with DAG(
    insert_postgres = PythonOperator (
        task_id ='insert_postgres' ,
        python_callable=insert_postgres ,
-       op_args = ['172.28.0.3' ,'5433' , 'penta123', 'penta123', 'penta123']
+       op_args = ['172.28.0.3' ,'5432' , 'penta123', 'penta123', 'penta123']
    )
    
    insert_postgres
