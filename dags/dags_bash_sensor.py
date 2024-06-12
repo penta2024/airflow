@@ -6,7 +6,7 @@ from airflow.sensors.bash   import BashSensor
 from airflow.operators.bash import BashOperator
 
 with DAG(
-    dag_id="dags_bash_sensor",
+    dag_id= 'dags_bash_sensor',
     schedule="0 6 * * *",
     start_date=pendulum.datetime(2023, 3, 1, tz="Asia/Seoul"),
     catchup=False
@@ -45,7 +45,8 @@ with DAG(
       bash_task = BashOperator(
         task_id='bash_task',
         env = {'FILE' : '/opt/airflow/files/tvCorona19VaccinestatNew/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}} /tvCorona19VaccinestatNew.csv'} , 
-        bash_command= 'echo "건수: 'cat $FILE | wc -l'"' ,
+#        bash_command= 'echo "건수: 'cat $FILE | wc -l '"' ,
+        bash_command= 'echo cat $FILE | wc -l' ,   
       )   
       
       [sensor_task_by_poke, sensor_task_by_reschedule] >> bash_task
