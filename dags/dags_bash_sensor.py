@@ -47,7 +47,7 @@ with DAG(
         env = {'FILE' : '/opt/airflow/files/tvCorona19VaccinestatNew/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/tvCorona19VaccinestatNew.csv'} , 
 #        bash_command= 'echo "건수: 'cat $FILE | wc -l '"' ,
         bash_command= 'echo "건수:" cat $FILE | wc -l ' ,
-        bash_command= 'echo cat $FILE | wc -l' ,   
+#        bash_command= 'echo cat $FILE | wc -l' ,   
       )   
       
       [sensor_task_by_poke, sensor_task_by_reschedule] >> bash_task
