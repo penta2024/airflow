@@ -15,7 +15,7 @@ with DAG(
         task_id= 'tvCorona19VaccinestatNew_sensor',
         fs_conn_id = 'conn_file_opt_airflow_files' ,
         filepath = 'tvCorona19VaccinestatNew/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/tvCorona19VaccinestatNew.csv' , 
-        recusive = False,
+        recursive = False,
         poke_interval = 30,     #30 sec
         timeout = 60*60*24 ,    #1  day
         mode = 'reschedule' 
