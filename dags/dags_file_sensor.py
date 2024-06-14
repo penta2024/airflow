@@ -18,7 +18,7 @@ with DAG(
         recursive = False,
         poke_interval = 30,     #30 sec
         #timeout = 60*60*24 ,    1  day
-        timeout = 300 ,        #1  day        
+        timeout = 60*1 ,        #1  day        
         mode = 'reschedule' 
       )  
 
