@@ -18,11 +18,10 @@ with DAG(
         recusive = False,
         poke_interval = 30,     #30 sec
         timeout = 60*60*24 ,    #1  day
-        mode = 'reschedule' ,
-        soft_fail = False
+        mode = 'reschedule' 
       )  
 
 
-      tvCorona19VaccinestatNew_sensor
+#      tvCorona19VaccinestatNew_sensor
  
        
