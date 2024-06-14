@@ -17,8 +17,8 @@ with DAG(
         filepath = 'tvCorona19VaccinestatNew/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/tvCorona19VaccinestatNew.csv' , 
         recursive = False,
         poke_interval = 30,     #30 sec
-        timeout = 60*60*24 ,    #1  day
-        #timeout = 60*5 ,    #1  day        
+        #timeout = 60*60*24 ,    1  day
+        timeout = 60*5 ,        #1  day        
         mode = 'reschedule' 
       )  
 
