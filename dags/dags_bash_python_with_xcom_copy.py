@@ -12,7 +12,7 @@ with DAG(
 ) as dag:   
     
   @task(task_id =  'python_push' )
-  def python_push_xcom() :
+  def python_push_xcom() : 
         result_dict = { 'status' : 'Good' , 'data' : [1,2,3] , 'options_cnt' : 100 }
         return result_dict
       
