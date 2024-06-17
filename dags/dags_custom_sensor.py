@@ -26,7 +26,7 @@ with DAG(
         task_id= 'tvCorona19VaccinestatNew_count_sensor',
         dataset_nm = 'tvCorona19VaccinestatNew' ,
         base_dt_col  = 'S_VC_DT' ,
-        day_off = 1 ,
+        day_off = -1 ,
         poke_interval = 600,     #10 min 
         mode = 'reschedule'         
       )   
