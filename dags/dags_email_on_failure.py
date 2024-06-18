@@ -18,7 +18,7 @@ with DAG(
     start_date=pendulum.datetime(2023, 3, 1, tz="Asia/Seoul"),
     dagrun_timeout = timedelta(minutes=2) ,
     default_args = { 'email_on_failure' : True ,
-                    'email' : email_lst
+                     'email' : email_lst
         } ,
     catchup=False
 ) as dag :
@@ -26,6 +26,7 @@ with DAG(
     @task (task_id = 'python_fail')  
     def python_task_func() :
         raise AirflowException('에러 발생')
+    python_task_func()
     
     bash_fail = BashOperator(
         task_id="bash_fail",
