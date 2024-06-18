@@ -2,7 +2,7 @@ from airflow.models.dag      import DAG
 from airflow.operators.email import EmailOperator
 from airflow.operators.bash  import BashOperator
 from airflow.decorators      import task
-from airflow.decorators      import AirflowException
+from airflow.exceptions      import AirflowException
 from datetime                import timedelta
 from airflow.models          import Variable
 
