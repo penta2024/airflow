@@ -2,7 +2,6 @@ from airflow.models.dag                  import DAG
 from airflow.operators.bash              import BashOperator
 from datetime                            import timedelta
 from config.on_failure_callback_to_slact import on_failure_callback_to_slact
-import datetime
 import pendulum
 
 
@@ -18,14 +17,14 @@ with DAG(
 ) as dag :
     
       bash_slp_90 = BashOperator(
-        task_id="bash_slp_90",
-        bash_command="sleep 90",
+        task_id='bash_slp_90',
+        bash_command='sleep 90',
     )  
       
       bash_ext_1 = BashOperator(
         trigger_rule = 'all_done' ,
-        task_id="bash_ext_1",
-        bash_command="exit 1",
+        task_id='bash_ext_1',
+        bash_command='exit 1'
     )       
 
 bash_slp_90 >> bash_ext_1 

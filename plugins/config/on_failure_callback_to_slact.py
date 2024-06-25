@@ -14,19 +14,19 @@ def on_failure_callback_to_slact(context) :
             "type" : "section" ,
             "text" : {
                 "type" : "mrkdwn" ,
-                "text" : f"*{dag_id}.{task_id} 실패 알람"
+                "text" : f"*{dag_id}.{task_id} 실패 알람*"
             }
         } ,
         {
             "type" : "section" ,
-            "field" : [
+            "fields" : [
                 {
                     "type" : "mrkdwn" ,
                     "text" : f"*배치 시간*: {batch_date}"
                 } ,
                 {
                     "type" : "mrkdwn" ,
-                    "text" : f"*에러 배용*: {err_msg}"
+                    "text" : f"*에러 내용*: {err_msg}"
                 }
             ]
         }
