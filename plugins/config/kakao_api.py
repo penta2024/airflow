@@ -84,7 +84,7 @@ def send_kakao_msg(talk_title :str, content:dict) :
             "Authorization" : f'Bearer {access_token}'
         }
         data = {'template_object' : json.dumps(list_data)}
-        response = requests.post(send_url, feaders=headers, data=data)
+        response = requests.post(send_url, headers=headers, data=data)
         print(f'try횟수 : {try_cnt}, response 상태: {response.status_code}')
         try_cnt += 1
         
