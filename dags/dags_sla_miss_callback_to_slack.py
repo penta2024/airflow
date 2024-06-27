@@ -1,16 +1,16 @@
 from airflow.models.dag                  import DAG
 from airflow.operators.bash              import BashOperator
 from datetime                            import timedelta
-from config.sla_miss_failure_callback_to_slact import sla_miss_failure_callback_to_slact
+from config.sla_miss_callback_to_slact import sla_miss_callback_to_slact
 import pendulum
 
 
 with DAG(
-    dag_id="dags_sla_miss_failure_callback_to_slack",
+    dag_id="dags_sla_miss_callback_to_slack",
     schedule="*/10 * * * *",
     start_date=pendulum.datetime(2023, 3, 1, tz="Asia/Seoul"),
     catchup=False,
-    sla_miss_failure_callback = sla_miss_failure_callback_to_slact ,
+    sla_miss_callback = sla_miss_callback_to_slact 
 ) as dag :
     
       task_slp100_sla120 = BashOperator(
