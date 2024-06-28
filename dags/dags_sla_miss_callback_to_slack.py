@@ -1,7 +1,7 @@
 from airflow.models.dag                  import DAG
 from airflow.operators.bash              import BashOperator
 from datetime                            import timedelta
-from config.sla_miss_callback_to_slact import sla_miss_callback_to_slact
+from config.sla_miss_callback_to_slact   import sla_miss_callback_to_slact
 import pendulum
 
 
