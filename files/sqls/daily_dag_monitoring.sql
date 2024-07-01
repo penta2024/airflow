@@ -28,6 +28,7 @@ select
      , r.run_cnt
      , r.success_cnt
      , r.failed_cnt
+     , r.running_cnt
      , r.last_failed_date
      , r.last_success_date
      , next_dagrun_data_interval_start 
