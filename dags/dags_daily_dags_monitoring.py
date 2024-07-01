@@ -34,7 +34,7 @@ with DAG(
                          return_blocks.append(sb.section_text("*2 실패대상*"))
                          if not failed_df.empty :
                            for idx, row in failed_df.iterrows() :
-                             return_blocks.append(sb.section_text(f"*DAG:* {row['dag_id']}\n*최근 실패일자:* {row['last_failed_date']}\n*마지막 성공일자:* {'없음' if str(row['last_success_date'])=='NaT' else row['last_success_date']}"))
+                             return_blocks.append(sb.section_text(f"*DAG:* {row['dag_id']}\n*최근 실패일자:* {row['last_failed_date']}\n*마지막 성공일자:* {'없음' if str(row['last_success_date']) == 'NaT' else row['last_success_date']}"))
                          else :
                            return_blocks.append(sb.section_text("없음"))
                          return_blocks.append(sb.divider())
