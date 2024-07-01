@@ -26,7 +26,7 @@ with DAG(
                          cursor.execute(sql)
                          rslt = cursor.fetchall()
                          rslt = pd.DataFrame(rslt)
-                         rslt.columns = ['dag_id', 'run_cnt', 'success_cnt', 'failed_cnt', 'running_cnt', 'last_failed_date', 'last_success_date']
+                         rslt.columns = ['dag_id', 'run_cnt', 'success_cnt', 'failed_cnt', 'running_cnt', 'last_failed_date', 'last_success_date', 'next_dagrun_data_interval_start', 'next_dagrun_data_interval_end']
                          return_blocks = []
                          
                          # 1) 실패대상
