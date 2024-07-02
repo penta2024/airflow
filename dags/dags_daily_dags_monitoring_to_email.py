@@ -69,7 +69,7 @@ with DAG(
                          ti = kwargs['ti']
                          ti.xcom_push(key ='subject', value = f"DAG 수행현황 알람({yesterday} ~ {now})"  )
                          html_content = f'''<h1> DAG 수행현황 알람({yesterday} ~ {now}) </h1><br/><br/>
-                         <h2>1. 수행 대상 DAG 개수*: {rslt.shape[0]}</h2><br/>
+                         <h2>1. 수행 대상 DAG 개수: {rslt.shape[0]}</h2><br/>
                          &nbsp;&nbsp;&nbsp;&nbsp; (1) 성공 DGA 개수 : {done_success_cnt}<br/>
                          &nbsp;&nbsp;&nbsp;&nbsp; (2) 실패 : {failed_df.shape[0]}<br/>
                          &nbsp;&nbsp;&nbsp;&nbsp; (3) 미수행: {skipped_df.shape[0]}<br/>
