@@ -71,7 +71,6 @@ with DAG(
                                            sb.divider()
                            
                          ] + return_blocks
-
                          return return_blocks                   
                        
       send_to_slack = SlackWebhookOperator (
