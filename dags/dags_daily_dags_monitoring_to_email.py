@@ -81,8 +81,8 @@ with DAG(
       send_email = EmailOperator (
         task_id = 'send_email' ,
         to = email_lst ,
-        subject = "{{ti.xcom_pull(key=;-'subject)}}" ,
-        html_content = '{{ti.xcom_pull(key='return_value')}}'
+        subject = "{{ti.xcom_pull(key='subject)}}" ,
+        html_content = "{{ti.xcom_pull(key='return_value')}}"
       )
       
       get_daily_monitoring_rslt_task()  >> send_email
