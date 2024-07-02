@@ -51,7 +51,7 @@ with DAG(
   
                          # 3) 수행 중 대상
                          running_df = rslt.query("(running_cnt > 0) ")
-                         return_blocks.append(sb.section_text("*3 미수행 대상*"))
+                         return_blocks.append(sb.section_text("*4 수행 중*"))
                          if not running_df.empty :
                            for idx, row in running_df.iterrows() :
                              return_blocks.append(sb.section_text(f"*DAG:* {row['dag_id']}\n*배치일자:* {row['next_dagrun_data_interval_start']}"))
