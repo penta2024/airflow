@@ -71,17 +71,17 @@ with DAG(
                          html_content = f'''<h1> DAG 수행현황 알람({yesterday} ~ {now}) </h1><br/><br/>
                          <h2>1. 수행 대상 DAG 개수: {rslt.shape[0]}</h2><br/>
                          &nbsp;&nbsp;&nbsp;&nbsp; (1) 성공 DGA 개수 : {done_success_cnt}<br/>
-                         &nbsp;&nbsp;&nbsp;&nbsp; (2) 실패 : {failed_df.shape[0]}<br/>
-                         &nbsp;&nbsp;&nbsp;&nbsp; (3) 미수행: {skipped_df.shape[0]}<br/>
-                         &nbsp;&nbsp;&nbsp;&nbsp; (4) 수행 중 : {running_df.shape[0]}<br/><br/>''' + html_content
+                         &nbsp;&nbsp;&nbsp;&nbsp; (2) 실패          : {failed_df.shape[0]}<br/>
+                         &nbsp;&nbsp;&nbsp;&nbsp; (3) 미수행        : {skipped_df.shape[0]}<br/>
+                         &nbsp;&nbsp;&nbsp;&nbsp; (4) 수행 중       : {running_df.shape[0]}<br/><br/>''' + html_content
                         
                          print(html_content)
                          return html_content                   
                        
       send_email = EmailOperator (
-        task_id = 'send_email' ,
-        to = email_lst ,
-        subject = "{{ti.xcom_pull(key='subject)}}" ,
+        task_id      = 'send_email' ,
+        to           = email_lst ,
+        subject      = "{{ti.xcom_pull(key='subject)}}" ,
         html_content = "{{ti.xcom_pull(key='return_value')}}"
       )
       
